@@ -8,7 +8,7 @@ Course: ECON 3916 (Spring 2026) · Final Project
 
 This repo predicts median house values across California census block groups using 8 demographic and housing features. The model is intended as a screening tool for a local real estate investor benchmarking listings against what a block's demographic and housing fundamentals predict; it is a **predictive** model, not a causal one.
 
-**Dataset:** California Housing — scikit-learn's `fetch_california_housing`, derived from the 1990 U.S. Census (Pace & Barry 1997). 20,640 observations, 8 features, continuous target in units of $100,000.
+**Dataset:** California Housing, scikit-learn's `fetch_california_housing`, derived from the 1990 U.S. Census (Pace & Barry 1997). 20,640 observations, 8 features, continuous target in units of $100,000.
 
 ## Repository Contents (checkpoint)
 
