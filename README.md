@@ -58,3 +58,51 @@ Or open `checkpoint.ipynb` directly in Google Colab — no local setup required.
 ## License
 
 Coursework — no license.
+
+The dataset is fetched in code through `sklearn.datasets.fetch_california_housing()`. No manual download needed.
+
+---
+
+## Reproducing the results
+
+### 1. Clone and set up
+
+```bash
+git clone https://github.com/maggie20041027-svg/ECON3916-Final-Project-.git
+cd ECON3916-Final-Project-
+
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 2. Run the notebook
+
+```bash
+jupyter lab 3916_final_project_starter.ipynb
+```
+
+Use Run All. All random operations are seeded with `random_state=42`. Your numbers should match the headline results above.
+
+The final cells save `artifacts/rf_model.pkl` and `artifacts/model_metadata.pkl`, which the Streamlit app loads.
+
+### 3. Launch the dashboard locally
+
+```bash
+streamlit run app.py
+```
+
+Opens at http://localhost:8501. Adjust the sidebar sliders to describe a block group and watch the prediction and intervals update.
+
+---
+
+## Limitations
+
+- **Data vintage.** The model is trained on 1990 Census data. Predictions are not 2026 market values; they illustrate the methodology.
+- **Top-coding.** The target is censored at $500,000 (~5% of rows). Predictions near or above 5.0 are systematically biased downward; the app surfaces a warning when this happens.
+- **Heteroscedasticity.** Residuals widen at the top of the price distribution. The 95% prediction interval covers about 93% of held-out cases, close to nominal but slightly optimistic for high-value blocks.
+- **Predictive, not causal.** Feature importances and coefficients describe model associations, not policy levers.
+
+## License
+
+Coursework, not intended for redistribution.
